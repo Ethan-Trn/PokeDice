@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "strict": true,
+    "outDir": ".",
+    "rootDir": "."
+  },
+  "include": ["main.ts"]
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokeDice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Press Start 2P', monospace;
+      background: #cc1111;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease;
+    }
+
+    .screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ── TITLE SCREEN ── */
+    #title-screen {
+      background-color: #cc1111;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+
+    .title-main {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(60px, 12vw, 96px);
+      color: #FFE000;
+      -webkit-text-stroke: 4px #1a1a8c;
+      text-shadow: 4px 4px 0 #1a1a8c, -2px -2px 0 #1a1a8c, 2px -2px 0 #1a1a8c, -2px 2px 0 #1a1a8c;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .title-sub {
+      font-size: clamp(10px, 2vw, 14px);
+      color: #fff;
+      -webkit-text-stroke: 1px #1a1a8c;
+      text-shadow: 2px 2px 0 #1a1a8c;
+      letter-spacing: 4px;
+      margin-top: 6px;
+    }
+
+    .press-start-btn {
+      margin-top: 48px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(9px, 2vw, 12px);
+      color: #ccccff;
+      background: transparent;
+      border: 2px solid #ccccff;
+      padding: 14px 28px;
+      cursor: pointer;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 0 #000066;
+      box-shadow: 3px 3px 0 #000066;
+      transition: transform 0.1s, box-shadow 0.1s;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    .press-start-btn:hover { background: rgba(204,204,255,0.15); }
+    .press-start-btn:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 #000066; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 16px;
+      font-size: 7px;
+      color: #ffcccc;
+      text-shadow: 1px 1px 0 #660000;
+      letter-spacing: 1px;
+    }
+
+    /* ── FIGHT SCREEN ── */
+    #fight-screen {
+      background: #1a1a2e;
+      gap: 24px;
+    }
+
+    .fight-label {
+      font-size: clamp(16px, 4vw, 28px);
+      color: #fff;
+      letter-spacing: 4px;
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    .back-btn {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 9px;
+      color: #aaa;
+      background: transparent;
+      border: 1px solid #555;
+      padding: 10px 20px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .back-btn:hover { color: #fff; border-color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- TITLE SCREEN -->
+  <div class="screen" id="title-screen">
+    <div class="title-main">PokéDice</div>
+    <div class="title-sub">DICE&nbsp;&nbsp;VERSION</div>
+    <button class="press-start-btn" id="start-btn">PRESS START</button>
+    <div class="footer">© 2025 YOUR STUDIO</div>
+  </div>
+
+  <!-- FIGHT SCREEN -->
+  <div class="screen hidden" id="fight-screen">
+    <div class="fight-label">FIGHT SCENE</div>
+    <button class="back-btn" id="back-btn">← BACK</button>
+  </div>
+
+  <!-- compiled from main.ts -->
+  <script src="main.js"></script>
+</body>
+</html>
