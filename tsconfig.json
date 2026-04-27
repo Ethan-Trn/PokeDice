@@ -1,9 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "strict": true,
-    "outDir": ".",
-    "rootDir": "."
-  },
-  "include": ["main.ts"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
