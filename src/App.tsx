@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import TitleScreen from './screens/TitleScreen/TitleScreen';
-import FightScreen from './screens/FightScreen/FightScreen';
+import TitleScreen from './Screens/TitleScreen/TitleScreen';
+import FightScreen from './Screens/FightScreen/FightScreen';
 
 type Screen = 'title' | 'fight';
 
