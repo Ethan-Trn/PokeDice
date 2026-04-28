@@ -12,7 +12,7 @@ export default function TitleScreen({ onStart }: Props) {
       <button className="press-start-btn" onClick={onStart}>
         PRESS START
       </button>
-      <div className="footer">© 2025 YOUR STUDIO</div>
+      <div className="footer">© 2026 Ethan Tran</div>
     </div>
   );
 }

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.dice-area-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.dice-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #555;
+  letter-spacing: 3px;
+}
+
+.dice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+}
+
+/* ── Single dice face ── */
+.dice-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 85%;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.1s;
+  position: relative;
+}
+
+.dice-face:hover:not(.empty) {
+  transform: scale(1.03);
+}
+
+.dice-face:active:not(.empty) {
+  transform: scale(0.97);
+}
+
+/* pokemon name label above the face */
+.dice-pokemon-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #888;
+  letter-spacing: 1px;
+  align-self: flex-start;
+}
+
+/* the dice face box */
+.dice-face-inner {
+  width: 100%;
+  min-height: 48px;
+  background: #1e1e35;
+  border: 2px solid var(--dice-color, #444455);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  gap: 8px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.dice-face.locked .dice-face-inner {
+  background: color-mix(in srgb, var(--dice-color, #444455) 20%, #1e1e35);
+  border-color: var(--dice-color, #444455);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--dice-color) 40%, transparent);
+}
+
+.dice-face.empty .dice-face-inner {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* move name */
+.dice-move-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--dice-color, #aaa);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* power number */
+.dice-move-power {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* type label */
+.dice-move-type {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 5px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* locked checkmark badge */
+.locked-badge {
+  position: absolute;
+  top: 18px;
+  right: -10px;
+  width: 18px;
+  height: 18px;
+  background: #66ff99;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #111;
+  font-weight: bold;
+}
