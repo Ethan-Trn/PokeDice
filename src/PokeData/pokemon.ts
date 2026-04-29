@@ -1,5 +1,5 @@
 import type { Pokemon } from '../metadata/Pokemon';
-import { scratch, absorb, quickAttack, rockThrow, harden, tackle, pound, rest, empty } from './moves';
+import {tackle, empty, ember } from './moves';
 
 export const treeko: Pokemon = {
   id: 'treeko',
@@ -17,12 +17,12 @@ export const treeko: Pokemon = {
   image: "treeko.png",
   dice: {
     faces: [
-      { slot: 1, move: scratch, powerOverride: 1 },
-      { slot: 2, move: absorb,  powerOverride: 1 },
-      { slot: 3, move: quickAttack, powerOverride: 1 },
-      { slot: 4, move: scratch, powerOverride: 2 },
-      { slot: 5, move: pound,   powerOverride: 1 },
-      { slot: 6, move: empty },
+      { slot: 1, move: tackle, powerOverride: 1 },
+      { slot: 2, move: tackle,  powerOverride: 1 },
+      { slot: 3, move: tackle, powerOverride: 1 },
+      { slot: 4, move: tackle, powerOverride: 2 },
+      { slot: 5, move: empty,   powerOverride: 1 },
+      { slot: 6, move: ember, powerOverride: 2 },
     ],
   },
 };
@@ -43,12 +43,12 @@ export const geodude: Pokemon = {
   image: "geodude.png",
   dice: {
     faces: [
-      { slot: 1, move: rockThrow, powerOverride: 2 },
-      { slot: 2, move: harden,    powerOverride: 2 },
+      { slot: 1, move: empty, powerOverride: 2 },
+      { slot: 2, move: empty,    powerOverride: 2 },
       { slot: 3, move: tackle,    powerOverride: 2 },
-      { slot: 4, move: rockThrow, powerOverride: 3 },
-      { slot: 5, move: harden,    powerOverride: 1 },
-      { slot: 6, move: rest,      powerOverride: 1 },
+      { slot: 4, move: empty, powerOverride: 3 },
+      { slot: 5, move: empty,    powerOverride: 1 },
+      { slot: 6, move: empty,      powerOverride: 1 },
     ],
   },
 };
@@ -69,10 +69,10 @@ export const zigzagoon: Pokemon = {
   dice: {
     faces: [
       { slot: 1, move: tackle,      powerOverride: 1 },
-      { slot: 2, move: scratch,     powerOverride: 1 },
-      { slot: 3, move: quickAttack, powerOverride: 1 },
-      { slot: 4, move: rest,        powerOverride: 1 },
-      { slot: 5, move: pound,       powerOverride: 1 },
+      { slot: 2, move: tackle,     powerOverride: 1 },
+      { slot: 3, move: empty, powerOverride: 1 },
+      { slot: 4, move: empty,        powerOverride: 1 },
+      { slot: 5, move: tackle,       powerOverride: 1 },
       { slot: 6, move: empty },
     ],
   },

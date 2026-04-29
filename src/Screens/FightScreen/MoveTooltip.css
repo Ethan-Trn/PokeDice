@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.move-tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 240px;
+  pointer-events: none;
+}
+
+.tooltip-bubble {
+  background: #0f0f1a;
+  border: 2px solid #333;
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.7);
+}
+
+.tooltip-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tooltip-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  line-height: 1.6;
+}
+
+.tooltip-text.white { color: #fff; }
+.tooltip-text.gray  { color: #777; }
+
+.tooltip-power-pill {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #111;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.tooltip-effect-pill {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 5px;
+  color: #111;
+  padding: 3px 7px;
+  border-radius: 3px;
+  text-transform: capitalize;
+}
+
+.tooltip-effect-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+
+.tooltip-effect-desc {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 5px;
+  color: #aaa;
+  line-height: 1.8;
+}

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.player-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #c8c8c8;
+  border: 3px solid #888;
+  border-radius: 6px;
+  padding: 10px 12px;
+  gap: 10px;
+  height: 96px;
+  width: 100%;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.player-card.attack-ready {
+  cursor: pointer;
+  border-color: #ffcc00;
+  transform: translateX(6px);
+}
+
+.player-card.targeting {
+  border-color: #ff4444;
+  transform: translateX(6px);
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.player-img {
+  width: 72px;
+  height: 72px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.player-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.player-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-hearts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.heart {
+  width: 12px;
+  height: 12px;
+  image-rendering: pixelated;
+}
+
+.dice-btn {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #7799bb;
+  border-radius: 6px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: #222;
+  cursor: default;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* used up overlay */
+.player-card {
+  position: relative;
+}
+
+.used-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 30, 30, 0.6);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.player-card.used-up {
+  cursor: default !important;
+  border-color: #555 !important;
+}

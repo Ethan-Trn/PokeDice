@@ -11,12 +11,12 @@
   overflow: hidden;
 }
 
-/* ── Top bar ── */
 .fight-topbar {
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 24px;
   background: #0f0f1a;
   border-bottom: 2px solid #333;
   flex-shrink: 0;
@@ -28,36 +28,55 @@
   letter-spacing: 2px;
 }
 
-/* ── Arena ── */
+.targeting-label {
+  font-size: 8px;
+  color: #fff;
+  letter-spacing: 2px;
+  animation: blink 0.8s step-start infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .fight-arena {
   flex: 1;
   display: flex;
-  align-items: stretch;
-  gap: 8px;
-  padding: 12px;
-  overflow: hidden;
   min-height: 0;
+  overflow: hidden;
 }
 
-.fight-arena .party-panel {
-  flex: 0 0 30%;
-  min-width: 0;
+.fight-arena-left {
+  width: 30%;
+  height: 100%;
+  border-right: 2px solid #2a2a44;
+  padding: 16px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
 }
 
-.dice-area {
-  flex: 0 0 40%;
-  background: #111122;
-  border: 2px dashed #333;
-  border-radius: 4px;
+.fight-arena-center {
+  width: 40%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 8px;
-  color: #555;
-  min-width: 0;
 }
 
-/* ── Bottom bar ── */
+.fight-arena-right {
+  width: 30%;
+  height: 100%;
+  border-left: 2px solid #2a2a44;
+  padding: 16px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
 .fight-bottombar {
   height: 56px;
   display: flex;
@@ -81,31 +100,13 @@
   transition: opacity 0.1s, transform 0.1s;
 }
 
-.action-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
+.action-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.action-btn:not(:disabled):active { transform: translate(1px, 1px); }
 
-.action-btn:not(:disabled):active {
-  transform: translate(1px, 1px);
-}
+.reroll-btn  { color: #88ccff; border-color: #88ccff; }
+.undo-btn    { color: #ffcc88; border-color: #ffcc88; }
+.resolve-btn { color: #88ffaa; border-color: #88ffaa; }
 
-.reroll-btn {
-  color: #88ccff;
-  border-color: #88ccff;
-}
-
-.undo-btn {
-  color: #ffcc88;
-  border-color: #ffcc88;
-}
-
-.resolve-btn {
-  color: #88ffaa;
-  border-color: #88ffaa;
-}
-
-/* ── Battle log ── */
 .battle-log {
   height: 52px;
   background: #0a0a15;

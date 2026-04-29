@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.enemy-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.enemy-panel::-webkit-scrollbar { width: 4px; }
+.enemy-panel::-webkit-scrollbar-track { background: transparent; }
+.enemy-panel::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+.enemy-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #c8c8c8;
+  border: 3px solid #888;
+  border-radius: 6px;
+  padding: 10px 12px;
+  gap: 10px;
+  height: 96px;
+  width: 100%;
+  flex-shrink: 0;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.enemy-card.targetable {
+  border-color: #ffffff;
+  cursor: crosshair;
+}
+
+.enemy-card.hovered {
+  border-color: #ff4444;
+  box-shadow: 0 0 12px rgba(255, 68, 68, 0.6);
+}
+
+.enemy-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.enemy-img {
+  width: 72px;
+  height: 72px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.enemy-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.enemy-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.enemy-hearts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.heart {
+  width: 12px;
+  height: 12px;
+  image-rendering: pixelated;
+}
+
+.enemy-dice-btn {
+  width: 48px;
+  height: 48px;
+  background: #cc8888;
+  border: 3px solid #aa6666;
+  border-radius: 6px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: #222;
+  cursor: default;
+  flex-shrink: 0;
+  pointer-events: none;
+}

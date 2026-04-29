@@ -51,10 +51,8 @@ export interface FightState {
   turnState: TurnState;
   log: string[];
 }
-
-// ── Run phase ──
 export type RunPhase =
-  | 'title'
+  | 'title'      // ← add this
   | 'draft'
   | 'map'
   | 'fight'
@@ -63,7 +61,6 @@ export type RunPhase =
   | 'rest'
   | 'game-over'
   | 'victory';
-
 // ── Full run state ──
 export interface RunState {
   phase: RunPhase;
@@ -99,10 +96,20 @@ export function createSnapshot(fightState: FightState): FightSnapshot {
 }
 
 // restores fight state from a snapshot (preserves rerollsRemaining)
+// only locked rolls are restored — unlocked rolls stay as they currently are
 export function restoreSnapshot(
   fightState: FightState,
   snapshot: FightSnapshot
 ): FightState {
+  const currentRolls = fightState.turnState.rolls;
+  const restoredRolls = currentRolls.map((currentRoll) => {
+    const snapshotRoll = snapshot.rolls.find(
+      (r) => r.pokemonId === currentRoll.pokemonId
+    );
+    if (snapshotRoll?.locked) return snapshotRoll;
+    return currentRoll;
+  });
+
   return {
     ...fightState,
     playerParty: snapshot.playerParty,
@@ -110,7 +117,7 @@ export function restoreSnapshot(
     log: snapshot.log,
     turnState: {
       ...fightState.turnState,
-      rolls: snapshot.rolls,
+      rolls: restoredRolls,
       exertMap: snapshot.exertMap,
       usageMap: snapshot.usageMap,
       // rerollsRemaining intentionally NOT restored
@@ -129,7 +136,7 @@ export const initialTurnState: TurnState = {
 };
 
 export const initialRunState: RunState = {
-  phase: 'title',
+  phase: 'draft',
   party: [],
   inventory: [],
   map: null,

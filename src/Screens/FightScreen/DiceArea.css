@@ -26,27 +26,24 @@
   align-items: center;
 }
 
-/* ── Single dice face ── */
 .dice-face {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  width: 85%;
+  width: 90%;
   cursor: pointer;
-  transition: transform 0.1s, opacity 0.1s;
   position: relative;
 }
 
-.dice-face:hover:not(.empty) {
-  transform: scale(1.03);
+.dice-face:hover:not(.empty) .dice-face-inner {
+  filter: brightness(1.15);
 }
 
 .dice-face:active:not(.empty) {
   transform: scale(0.97);
 }
 
-/* pokemon name label above the face */
 .dice-pokemon-name {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
@@ -55,7 +52,6 @@
   align-self: flex-start;
 }
 
-/* the dice face box */
 .dice-face-inner {
   width: 100%;
   min-height: 48px;
@@ -67,13 +63,14 @@
   justify-content: space-between;
   padding: 8px 12px;
   gap: 8px;
-  transition: background 0.15s, border-color 0.15s;
+  transition: filter 0.15s;
+  position: relative;
+  overflow: visible;
 }
 
 .dice-face.locked .dice-face-inner {
-  background: color-mix(in srgb, var(--dice-color, #444455) 20%, #1e1e35);
-  border-color: var(--dice-color, #444455);
-  box-shadow: 0 0 8px color-mix(in srgb, var(--dice-color) 40%, transparent);
+  background: color-mix(in srgb, var(--dice-color, #444455) 25%, #1e1e35);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--dice-color) 50%, transparent);
 }
 
 .dice-face.empty .dice-face-inner {
@@ -81,7 +78,6 @@
   cursor: default;
 }
 
-/* move name */
 .dice-move-name {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
@@ -92,28 +88,25 @@
   text-overflow: ellipsis;
 }
 
-/* power number */
 .dice-move-power {
   font-family: 'Press Start 2P', monospace;
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
-  font-weight: bold;
   min-width: 20px;
   text-align: center;
 }
 
-/* type label */
-.dice-move-type {
+.dice-move-type-badge {
   font-family: 'Press Start 2P', monospace;
   font-size: 5px;
-  color: #888;
+  color: #111;
+  padding: 3px 6px;
+  border-radius: 3px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  min-width: 36px;
-  text-align: right;
+  white-space: nowrap;
 }
 
-/* locked checkmark badge */
 .locked-badge {
   position: absolute;
   top: 18px;
@@ -128,4 +121,39 @@
   font-size: 10px;
   color: #111;
   font-weight: bold;
+  z-index: 2;
+}
+
+/* ── Tooltip wrapper ── */
+.dice-tooltip-wrapper {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.dice-face:hover:not(.empty) .dice-tooltip-wrapper {
+  display: block;
+}
+
+/* used up overlay on dice face */
+.dice-face-inner {
+  position: relative;
+}
+
+.used-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.65);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.used-text {
+  color: #555 !important;
+  font-size: 6px !important;
+  letter-spacing: 2px;
 }
