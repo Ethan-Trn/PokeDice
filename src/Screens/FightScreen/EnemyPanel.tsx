@@ -48,7 +48,7 @@ export default function EnemyPanel({
             <div className="enemy-info">
               <img
                 className="enemy-img"
-                src={`/src/assets/PokeImages/${pokemon.image}`}
+                src={`/assets/PokeImages/${pokemon.image}`}
                 alt={pokemon.name}
               />
               <div className="enemy-details">
@@ -67,10 +67,10 @@ export default function EnemyPanel({
                         className="heart"
                         src={
                           isDead
-                            ? '/src/assets/Battle/empty_heart.png'
+                            ? '/assets/Battle/empty_heart.png'
                             : isPreview
-                            ? '/src/assets/Battle/injured_heart.png'
-                            : '/src/assets/Battle/heart.jpg'
+                            ? '/assets/Battle/injured_heart.png'
+                            : '/assets/Battle/heart.jpg'
                         }
                         alt="hp"
                       />
@@ -79,7 +79,7 @@ export default function EnemyPanel({
                 </div>
                 <div className="enemy-speed">
                   {Array.from({ length: pokemon.speed }).map((_, i) => (
-                    <img key={i} className="speed-boot" src="/src/assets/Battle/speed_boots.png" alt="spd" />
+                    <img key={i} className="speed-boot" src="/assets/Battle/speed_boots.png" alt="spd" />
                   ))}
                 </div>
               </div>

@@ -67,7 +67,7 @@ export default function PlayerPanel({
             <div className="player-info">
               <img
                 className="player-img"
-                src={`/src/assets/PokeImages/${pokemon.image}`}
+                src={`/assets/PokeImages/${pokemon.image}`}
                 alt={pokemon.name}
               />
               <div className="player-details">
@@ -95,16 +95,16 @@ export default function PlayerPanel({
                       && heartIndex <= pokemon.maxHealth;
 
                     if (!isAlive && isHealPreview) {
-                      return <img key={i} className="heart" src="/src/assets/Battle/healing_heart.png" alt="heal" />;
+                      return <img key={i} className="heart" src="/assets/Battle/healing_heart.png" alt="heal" />;
                     }
                     if (!isAlive) {
-                      return <img key={i} className="heart" src="/src/assets/Battle/empty_heart.png" alt="empty" />;
+                      return <img key={i} className="heart" src="/assets/Battle/empty_heart.png" alt="empty" />;
                     }
                     return (
                       <img
                         key={i}
                         className="heart"
-                        src={isIncoming ? '/src/assets/Battle/injured_heart.png' : '/src/assets/Battle/heart.jpg'}
+                        src={isIncoming ? '/assets/Battle/injured_heart.png' : '/assets/Battle/heart.jpg'}
                         alt="hp"
                       />
                     );
@@ -112,7 +112,7 @@ export default function PlayerPanel({
                 </div>
                 <div className="player-speed">
                   {Array.from({ length: pokemon.speed }).map((_, i) => (
-                    <img key={i} className="speed-boot" src="/src/assets/Battle/speed_boots.png" alt="spd" />
+                    <img key={i} className="speed-boot" src="/assets/Battle/speed_boots.png" alt="spd" />
                   ))}
                 </div>
               </div>
