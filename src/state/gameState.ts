@@ -1,6 +1,7 @@
 import type { Pokemon } from '../metadata/Pokemon';
 import type { Item } from '../metadata/Item';
 import type { GameMap } from '../metadata/MapNode';
+import type { EnemyAction } from './enemyAI';
 
 // ── Dice roll result ──
 export interface DiceRollResult {
@@ -50,9 +51,13 @@ export interface FightState {
   turn: number;
   turnState: TurnState;
   log: string[];
+  enemyActions: EnemyAction[]; // generated at start of each turn, stable for the whole turn
 }
+
+// ── Run phase ──
 export type RunPhase =
-  | 'title'      // ← add this
+  'title'
+  | 'choosing-starter'
   | 'draft'
   | 'map'
   | 'fight'
@@ -61,6 +66,7 @@ export type RunPhase =
   | 'rest'
   | 'game-over'
   | 'victory';
+
 // ── Full run state ──
 export interface RunState {
   phase: RunPhase;

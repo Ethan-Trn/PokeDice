@@ -1,5 +1,5 @@
 import type { Pokemon } from '../metadata/Pokemon';
-import {tackle, empty, ember } from './moves';
+import {tackle, empty, ember , heal} from './moves';
 
 export const treeko: Pokemon = {
   id: 'treeko',
@@ -7,7 +7,7 @@ export const treeko: Pokemon = {
   type: 'grass',
   health: 5,
   maxHealth: 5,
-  speed: 70,
+  speed: 3,
   ability: 'Overgrow',
   statusCondition: 'none',
   level: 1,
@@ -18,8 +18,8 @@ export const treeko: Pokemon = {
   dice: {
     faces: [
       { slot: 1, move: tackle, powerOverride: 1 },
-      { slot: 2, move: tackle,  powerOverride: 1 },
-      { slot: 3, move: tackle, powerOverride: 1 },
+      { slot: 2, move: heal,  powerOverride: 1 },
+      { slot: 3, move: heal, powerOverride: 1 },
       { slot: 4, move: tackle, powerOverride: 2 },
       { slot: 5, move: empty,   powerOverride: 1 },
       { slot: 6, move: ember, powerOverride: 2 },
@@ -33,7 +33,7 @@ export const geodude: Pokemon = {
   type: 'rock',
   health: 5,
   maxHealth: 5,
-  speed: 20,
+  speed: 1,
   ability: 'Rock Head',
   statusCondition: 'none',
   level: 1,
@@ -43,12 +43,12 @@ export const geodude: Pokemon = {
   image: "geodude.png",
   dice: {
     faces: [
-      { slot: 1, move: empty, powerOverride: 2 },
-      { slot: 2, move: empty,    powerOverride: 2 },
+      { slot: 1, move: tackle, powerOverride: 2 },
+      { slot: 2, move: tackle,    powerOverride: 2 },
       { slot: 3, move: tackle,    powerOverride: 2 },
-      { slot: 4, move: empty, powerOverride: 3 },
-      { slot: 5, move: empty,    powerOverride: 1 },
-      { slot: 6, move: empty,      powerOverride: 1 },
+      { slot: 4, move: tackle, powerOverride: 3 },
+      { slot: 5, move: tackle,    powerOverride: 1 },
+      { slot: 6, move: tackle,      powerOverride: 1 },
     ],
   },
 };
@@ -58,7 +58,7 @@ export const zigzagoon: Pokemon = {
   type: 'normal',
   health: 38,
   maxHealth: 38,
-  speed: 60,
+  speed: 2,
   ability: 'Pick Up',
   image: 'zigzagoon.png',
   statusCondition: 'none',
@@ -68,12 +68,12 @@ export const zigzagoon: Pokemon = {
   evolvesAt: 3,
   dice: {
     faces: [
-      { slot: 1, move: tackle,      powerOverride: 1 },
-      { slot: 2, move: tackle,     powerOverride: 1 },
-      { slot: 3, move: empty, powerOverride: 1 },
-      { slot: 4, move: empty,        powerOverride: 1 },
+      { slot: 1, move: tackle,       powerOverride: 1 },
+      { slot: 2, move: tackle,       powerOverride: 1 },
+      { slot: 3, move: tackle,       powerOverride: 1 },
+      { slot: 4, move: tackle,       powerOverride: 1 },
       { slot: 5, move: tackle,       powerOverride: 1 },
-      { slot: 6, move: empty },
+      { slot: 6, move: tackle ,      powerOverride: 2 },
     ],
   },
 }

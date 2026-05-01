@@ -92,7 +92,8 @@
 
 /* used up overlay */
 .player-card {
-  position: relative;
+  min-height: 88px;
+  height: auto;  /* grow with content */
 }
 
 .used-overlay {
@@ -107,4 +108,68 @@
 .player-card.used-up {
   cursor: default !important;
   border-color: #555 !important;
+}
+
+.player-card.actionable {
+  cursor: pointer;
+}
+
+.player-card.targeting-attack {
+  border-color: #ff4444;
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+  transform: translateX(4px);
+}
+
+.player-card.targeting-heal {
+  border-color: #66ff99;
+  box-shadow: 0 0 10px rgba(102, 255, 153, 0.5);
+  transform: translateX(4px);
+}
+
+.player-card.heal-targetable {
+  border-color: #66ff99;
+  cursor: pointer;
+}
+
+.player-card.heal-targetable:hover {
+  box-shadow: 0 0 10px rgba(102, 255, 153, 0.4);
+}
+
+.targeting-label.heal-label {
+  color: #66ff99;
+}
+
+.player-speed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin-top: 2px;
+  max-width: 100%;
+}
+
+.speed-boot {
+  width: 15px;
+  height: 15px;
+  image-rendering: pixelated;
+  object-fit: contain;
+  display: block;
+}
+
+.dice-btn-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.dice-power-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: #111;
+  color: #fff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  z-index: 2;
+  pointer-events: none;
 }

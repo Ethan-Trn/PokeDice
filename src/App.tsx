@@ -13,8 +13,8 @@ export default function App() {
     // will be replaced with proper draft screen later
     dispatch({
       type: 'START_FIGHT',
-      playerParty: [allPokemon[0], allPokemon[1]],
-      enemyParty: [allPokemon[2]],
+      playerParty: [allPokemon[0], allPokemon[2]],
+      enemyParty: [allPokemon[1]],
     });
   }
 

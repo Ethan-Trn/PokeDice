@@ -31,3 +31,13 @@ export const ember: Move = {
   description: 'Deals damage and burns the enemy.',
   effect: { type: 'burn', value: 2 },
 };
+export const heal: Move = {
+  id: 'heal',
+  name: 'Heal',
+  category: 'heal',
+  type: 'normal',
+  basePower: 3,
+  usage: 1,
+  description: 'Restores HP to a friendly pokemon.',
+};
+ 
