@@ -27,7 +27,6 @@ export default function PlayerPanel({
         const isLocked = roll?.locked ?? false;
         const isAttackLocked = isLocked && face?.move.category === 'attack';
         const isHealLocked = isLocked && face?.move.category === 'heal';
-        const isActionable = isAttackLocked || isHealLocked;
         const isActiveAttacker = targeting?.mode === 'attack' && targeting.attackerId === pokemon.id;
         const isActiveHealer = targeting?.mode === 'heal' && targeting.attackerId === pokemon.id;
         const isHealTarget = targeting?.mode === 'heal' && targeting.attackerId !== pokemon.id;
@@ -36,6 +35,7 @@ export default function PlayerPanel({
         const usageKey = `${pokemon.id}_${roll?.rolledFaceSlot}`;
         const usageLeft = usageKey in usageMap ? usageMap[usageKey] : (face?.move.usage ?? 1);
         const isUsedUp = usageLeft <= 0;
+        const isActionable = (isAttackLocked || isHealLocked) && !isUsedUp;
         const isInactive = isDead;
 
         const color = isLocked && face ? TYPE_COLORS[face.move.type] : '#aabbdd';
@@ -57,7 +57,7 @@ export default function PlayerPanel({
               if (el) cardRefs.current.set(pokemon.id, el);
               else cardRefs.current.delete(pokemon.id);
             }}
-            className={`player-card ${borderClass} ${isActionable && !isInactive ? 'actionable' : ''} ${isInactive ? 'used-up' : ''}`}
+            className={`player-card ${borderClass} ${isActionable ? 'actionable' : ''} ${isDead ? 'used-up' : ''}`}
             onClick={() => (isActionable || targeting?.mode === 'heal') ? onCardClick(pokemon.id) : undefined}
             onMouseEnter={() => onCardHover(pokemon.id)}
             onMouseLeave={() => onCardHover(null)}
